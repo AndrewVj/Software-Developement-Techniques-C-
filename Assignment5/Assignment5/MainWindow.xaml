@@ -1,0 +1,90 @@
+﻿<Window x:Class="Assignment5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assignment5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <local:RowConverter x:Key="MyConverter"/>
+        </Grid.Resources>
+        <Label x:Name="YearOfMakeLabel" Content="Year of make:" HorizontalAlignment="Left" Margin="7,44,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="YearOfMakeTextBox" HorizontalAlignment="Left" Margin="207,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="14" TextChanged="TextBox_TextChanged" ToolTip="{Binding ElementName=YearOfMakeTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="AnAppointment.CustVehicleYearOfMake">
+                    <Binding.ValidationRules>
+                        <local:YearOfMakeRule Min="1950" Max="2021"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label x:Name="ManufacturingCompanyLabel" Content="Manufacturing company: " HorizontalAlignment="Left" Margin="7,80,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="ManufacturingCompanyTextBox" HorizontalAlignment="Left" Margin="207,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="14" TextChanged="TextBox_TextChanged" ToolTip="{Binding ElementName=ManufacturingCompanyTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="AnAppointment.CustVehicleCompany">
+                    <Binding.ValidationRules>
+                        <local:GenericTextBoxRule Maxlength="20"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label x:Name="VechicleModelLabel" Content="Model:" HorizontalAlignment="Left" Margin="7,113,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="VehicleModelTextBox" HorizontalAlignment="Left" Margin="207,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="14" TextChanged="TextBox_TextChanged" ToolTip="{Binding ElementName=VehicleModelTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="AnAppointment.CustVehicleModel">
+                    <Binding.ValidationRules>
+                        <local:GenericTextBoxRule Maxlength="20"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label x:Name="CreditCardLabel" Content="Credit card number: " HorizontalAlignment="Left" Margin="7,149,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <TextBox x:Name="CreditCardTextBox" HorizontalAlignment="Left" Margin="207,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" TextChanged="TextBox_TextChanged" FontSize="14" ToolTip="{Binding ElementName=CreditCardTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="AnAppointment.CustVehicleCreditCardNo">
+                    <Binding.ValidationRules>
+                        <local:CreditCardRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label x:Name="VehicleTypeLabel" Content="Vehicle type:" HorizontalAlignment="Left" Margin="7,186,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox x:Name="VehicleListComboBox" HorizontalAlignment="Left" Margin="207,189,0,0" VerticalAlignment="Top" Width="130"/>
+        <Label x:Name="AppointmentsLabel" Content="Pick Appointment:" HorizontalAlignment="Left" Margin="7,238,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <ComboBox x:Name="AppointmentsListComboBox" HorizontalAlignment="Left" Margin="207,241,0,0" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="BookAppointmentButton" Content="Book Appointment" HorizontalAlignment="Left" Margin="12,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.17,0.052" FontFamily="Arial Black" FontSize="14" Click="BookAppointmentButton_Click"/>
+        <Button x:Name="ProcessAppointmentButton" Content="Process Appointments" HorizontalAlignment="Left" Margin="95,361,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.17,0.052" FontFamily="Arial Black" FontSize="14" Click="ProcessAppointmentButton_Click"/>
+        <Label Content="Enter Vehicle Details:" HorizontalAlignment="Left" Margin="7,13,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.17,0.052" FontFamily="Arial Black" FontSize="14"/>
+        <DataGrid x:Name="MyDataGrid" ItemsSource="{Binding Path=DisplayAppointments}" AutoGenerateColumns="false" Margin="348,45,10,125" >
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding Path=., Converter={StaticResource MyConverter}}" />
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Slot" Binding="{Binding SlotNo}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding AppointmentTime}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding VehicleType}"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding CustVehicleYearOfMake}"/>
+                <DataGridTextColumn Header="Company" Binding="{Binding CustVehicleCompany}"/>
+                <DataGridTextColumn Header="Model" Binding="{Binding CustVehicleModel}"/>
+                <DataGridTextColumn Header="CreditCard" Binding="{Binding CustVehicleSecureCreditCardNo}"/>
+                <DataGridTextColumn Header="Services" Binding="{Binding Services}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="SearchByYearButton" Content="Search" HorizontalAlignment="Left" Margin="281,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.17,0.052" FontFamily="Arial Black" FontSize="14" Click="SearchByYearButton_Click"/>
+        <TextBox x:Name="SearchByYearTextBox" HorizontalAlignment="Left" Margin="207,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" FontSize="14" TextChanged="TextBox_TextChanged" ToolTip="{Binding ElementName=SearchByYearTextBox, Path=(Validation.Errors)[0].ErrorContent}">
+            <TextBox.Text>
+                <Binding Path="AVehicle.YearOfMake">
+                    <Binding.ValidationRules>
+                        <local:SearchYearRule Min="1950" Max="2021"/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+        <Label x:Name="SearchLabel" Content="Enter the year to search:" HorizontalAlignment="Left" Margin="6,285,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="14"/>
+        <Button x:Name="SaveToFileButton" Content="SaveToFile" HorizontalAlignment="Left" Margin="207,319,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.17,0.052" FontFamily="Arial Black" FontSize="14" Click="SaveToFileButton_Click"/>
+    </Grid>
+</Window>

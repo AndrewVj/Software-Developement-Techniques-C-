@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AppointmentList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Appointment>
+    <SlotNo>1</SlotNo>
+    <AppointmentTime>8:00 AM</AppointmentTime>
+    <CustomerVehicle xsi:type="Tractor">
+      <YearOfMake>2021</YearOfMake>
+      <Company>John Deer</Company>
+      <Model>MFR</Model>
+      <AssociatedCreditCardNumber>1234123412341234</AssociatedCreditCardNumber>
+    </CustomerVehicle>
+    <CustVehicleYearOfMake>2021</CustVehicleYearOfMake>
+    <CustVehicleCompany>John Deer</CustVehicleCompany>
+    <CustVehicleModel>MFR</CustVehicleModel>
+    <CustVehicleCreditCardNo>1234123412341234</CustVehicleCreditCardNo>
+    <VehicleType>Tractor</VehicleType>
+  </Appointment>
+  <Appointment>
+    <SlotNo>3</SlotNo>
+    <AppointmentTime>10:00 AM</AppointmentTime>
+    <CustomerVehicle xsi:type="SchoolBus">
+      <YearOfMake>2005</YearOfMake>
+      <Company>Tata</Company>
+      <Model>GRM</Model>
+      <AssociatedCreditCardNumber>1234123412341234</AssociatedCreditCardNumber>
+    </CustomerVehicle>
+    <CustVehicleYearOfMake>2005</CustVehicleYearOfMake>
+    <CustVehicleCompany>Tata</CustVehicleCompany>
+    <CustVehicleModel>GRM</CustVehicleModel>
+    <CustVehicleCreditCardNo>1234123412341234</CustVehicleCreditCardNo>
+    <VehicleType>SchoolBus</VehicleType>
+  </Appointment>
+  <Appointment>
+    <SlotNo>4</SlotNo>
+    <AppointmentTime>11:00 AM</AppointmentTime>
+    <CustomerVehicle xsi:type="Car">
+      <YearOfMake>2020</YearOfMake>
+      <Company>Nissan</Company>
+      <Model>GTR</Model>
+      <AssociatedCreditCardNumber>1234123412341234</AssociatedCreditCardNumber>
+    </CustomerVehicle>
+    <CustVehicleYearOfMake>2020</CustVehicleYearOfMake>
+    <CustVehicleCompany>Nissan</CustVehicleCompany>
+    <CustVehicleModel>GTR</CustVehicleModel>
+    <CustVehicleCreditCardNo>1234123412341234</CustVehicleCreditCardNo>
+    <VehicleType>Car</VehicleType>
+  </Appointment>
+  <Appointment>
+    <SlotNo>5</SlotNo>
+    <AppointmentTime>12:00 AM</AppointmentTime>
+    <CustomerVehicle xsi:type="PickUpTruck">
+      <YearOfMake>2006</YearOfMake>
+      <Company>Toyota</Company>
+      <Model>TruX</Model>
+      <AssociatedCreditCardNumber>1234123412341234</AssociatedCreditCardNumber>
+    </CustomerVehicle>
+    <CustVehicleYearOfMake>2006</CustVehicleYearOfMake>
+    <CustVehicleCompany>Toyota</CustVehicleCompany>
+    <CustVehicleModel>TruX</CustVehicleModel>
+    <CustVehicleCreditCardNo>1234123412341234</CustVehicleCreditCardNo>
+    <VehicleType>PickUpTruck</VehicleType>
+  </Appointment>
+  <Appointment>
+    <SlotNo>10</SlotNo>
+    <AppointmentTime> 5:00 PM</AppointmentTime>
+    <CustomerVehicle xsi:type="Car">
+      <YearOfMake>2021</YearOfMake>
+      <Company>Toyota</Company>
+      <Model>Camry</Model>
+      <AssociatedCreditCardNumber>1234123412341234</AssociatedCreditCardNumber>
+    </CustomerVehicle>
+    <CustVehicleYearOfMake>2021</CustVehicleYearOfMake>
+    <CustVehicleCompany>Toyota</CustVehicleCompany>
+    <CustVehicleModel>Camry</CustVehicleModel>
+    <CustVehicleCreditCardNo>1234123412341234</CustVehicleCreditCardNo>
+    <VehicleType>Car</VehicleType>
+  </Appointment>
+</AppointmentList>
